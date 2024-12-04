@@ -5,6 +5,10 @@
 - 💎 集成 [Tailwind CSS](https://tailwindcss.com)
 - ✅ TypeScript 和 React 18 的严格模式
 - 💡 使用 `@` 前缀的绝对路径导入
+- 🦊 Git Hooks使用Husky
+- 🚫 用 Lint-staged 在 Git 暂存文件上运行 linters
+- 🚓 使用 Commitlint 检查 git commit
+- 📓 使用 Commitizen 编写符合标准的提交消息
 
 ### 要求
 

@@ -34,7 +34,7 @@
     "allowSyntheticDefaultImports": true, // 用于控制是否在编译时跳过对声明文件（.d.ts 文件）的类型检查。
     "esModuleInterop": true, // 在 .tsx 文件里支持 JSX
     "forceConsistentCasingInFileNames": true, // 不输出文件
-    "isolatedModules": true, // 是否在 JS 文件中报告错误
+    "isolatedModules": true, // 在 JS 文件中报告错误
     "skipLibCheck": true,
 
     "plugins": [
@@ -48,7 +48,8 @@
     "**/*.ts",
     "**/*.tsx",
     ".next/types/**/*.ts",
-    "**/*.mts"
+    "**/*.mts",
+    "commitlint.cjs"
   ],
   "exclude": [
     "./out/**/*",
