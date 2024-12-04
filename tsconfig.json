@@ -1,63 +1,57 @@
 {
-  "compilerOptions": {
-    "lib": ["dom", "dom.iterable", "esnext"], // 告诉 TypeScript 编译器要包括哪些环境的类型声明文件（`.d.ts` 文件）
+  "compilerOptions": { // 控制是否将每个文件作为单独的模块处理。
+    "incremental": true, // 检查 switch 语句包含正确的 break
+    "target": "es2017",
+    "jsx": "preserve",
+    "lib": ["dom", "dom.iterable", "esnext"], // types用来指定需要包含的模块，只有在这里列出的模块的声明文件才会被加载进来
+    "baseUrl": ".", // 告诉 TypeScript 编译器要包括哪些环境的类型声明文件（`.d.ts` 文件）
     "module": "esnext", // 生成代码的模块标准
-    "moduleResolution": "bundler", // 模块解析策略
-    "resolveJsonModule": true, // 自动解析JSON文件
-    "removeComments": true, // 删除注释
-    "preserveConstEnums": true, // 禁止删除枚举常量生成代码中的声明
-    "strict": true, // 启用所有严格类型检查
-    "alwaysStrict": true, // 以严格模式解析，并为每个源文件发出"use strict"
-    "strictNullChecks": true, // 不允许把 null、undefined 赋值给其他类型变量
-    "noUncheckedIndexedAccess": true, // 通过索引签名来描述对象上有未知键但已知值的对象
-
-    "noImplicitAny": true, // 不允许隐式的 any 类型
-    "noImplicitReturns": true, // 每个分支都会有返回值
-    "noImplicitThis": true, // 不允许 this 有隐式的 any类型
-    "noUnusedLocals": true, // 检查未使用的局部变量
-    "noUnusedParameters": true, // 检查未使用的参数
-    "allowUnreachableCode": false, // 不允许无法访问的代码
-    "noFallthroughCasesInSwitch": true, // 检查 switch 语句包含正确的 break
-
-    "target": "es2017", // 生成代码的 ECMAScript 目标版本
-    "outDir": "out", // 输出文件夹
-    "sourceMap": true, // 是否生成 .map 文件
-
-    "esModuleInterop": true, // 通过创建命名空间实现 CommonJS 兼容性
-    "allowSyntheticDefaultImports": true, // 允许从没有默认导出的模块默认导入
-    "allowJs": true, // 是否编译 JS 文件
-    "checkJs": true, // 是否在 JS 文件中报告错误
-    "skipLibCheck": true, // 用于控制是否在编译时跳过对声明文件（.d.ts 文件）的类型检查。
-    "forceConsistentCasingInFileNames": true,
-
-    "jsx": "preserve", // 在 .tsx 文件里支持 JSX
-    "noEmit": true, // 不输出文件
-    "isolatedModules": true, // 控制是否将每个文件作为单独的模块处理。
-    "incremental": true, // 启用增量编译，使用该标志可以加快后续构建速度
-  
-    "types": [], // types用来指定需要包含的模块，只有在这里列出的模块的声明文件才会被加载进来
-
-    "baseUrl": ".",
+    "moduleResolution": "bundler",
     "paths": {
       "@/*": ["./src/*"],
       "@/public/*": ["./public/*"]
-    },
+    }, // 模块解析策略
+    "resolveJsonModule": true, // 启用增量编译，使用该标志可以加快后续构建速度
+    "types": [], // 允许从没有默认导出的模块默认导入
+    "allowJs": true, // 是否编译 JS 文件
+    "checkJs": true, // 禁止删除枚举常量生成代码中的声明
+    "strict": true, // 自动解析JSON文件
+    "strictNullChecks": true, // 以严格模式解析，并为每个源文件发出"use strict"
+    "allowUnreachableCode": false, // 启用所有严格类型检查
+    "alwaysStrict": true, // 检查未使用的局部变量
+    "noFallthroughCasesInSwitch": true, // 不允许把 null、undefined 赋值给其他类型变量
+    "noImplicitAny": true, // 通过索引签名来描述对象上有未知键但已知值的对象
+    "noImplicitReturns": true, // 每个分支都会有返回值
+    "noImplicitThis": true, // 不允许隐式的 any 类型
+    "noUncheckedIndexedAccess": true, // 不允许 this 有隐式的 any类型
+    "noUnusedLocals": true, // 生成代码的 ECMAScript 目标版本
+    "noUnusedParameters": true, // 检查未使用的参数
+    "noEmit": true, // 是否生成 .map 文件
+    "outDir": "out", // 删除注释
+    "preserveConstEnums": true, // 不允许无法访问的代码
+    "removeComments": true, // 输出文件夹
+    "sourceMap": true, // 通过创建命名空间实现 CommonJS 兼容性
+    "allowSyntheticDefaultImports": true, // 用于控制是否在编译时跳过对声明文件（.d.ts 文件）的类型检查。
+    "esModuleInterop": true, // 在 .tsx 文件里支持 JSX
+    "forceConsistentCasingInFileNames": true, // 不输出文件
+    "isolatedModules": true, // 是否在 JS 文件中报告错误
+    "skipLibCheck": true,
 
     "plugins": [
       {
         "name": "next"
       }
-    ],
+    ]
   },
-  "exclude": [
-    "./out/**/*",
-    "./node_modules/**/*",
-  ],
   "include": [
     "next-env.d.ts",
     "**/*.ts",
     "**/*.tsx",
     ".next/types/**/*.ts",
     "**/*.mts"
+  ],
+  "exclude": [
+    "./out/**/*",
+    "./node_modules/**/*"
   ]
 }
