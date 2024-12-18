@@ -4,6 +4,9 @@
 - 🔥 类型检查 [TypeScript](https://www.typescriptlang.org)
 - 💎 集成 [Tailwind CSS](https://tailwindcss.com)
 - ✅ TypeScript 和 React 18 的严格模式
+- 🔒 与 [next-auth](https://next-auth.js.org/providers/google) 进行身份验证：注册、登录、退出、忘记密码、重置密码等。
+- 📦 使用 [DrizzleORM](https://orm.drizzle.team/docs/views) 实现类型安全的 ORM，使用的MySQL
+- 💽 使用的MySQL
 - ♻️  使用 T3 Env 实现类型安全的环境变量
 - 🔴 使用 Zod 进行验证的库
 - 📏 使用 [ESLint](https://eslint.org) 进行 Linter （默认 Next.js、Next.js Core Web Vitals、Tailwind CSS 和 Antfu 配置）
@@ -25,6 +28,7 @@
 ├── .husky                          # Husky configuration
 ├── .vscode                         # VSCode configuration
 ├── public                          # Public assets folder
+├── drizzle                         # drizzle assets folder
 ├── src
 │   ├── app                         # Next JS App (App Router)
 │   ├── components                  # React components

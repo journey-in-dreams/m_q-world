@@ -1,4 +1,5 @@
 import { signIn } from '@/auth';
+import Text from '@/components/text';
 import Button from '@/components/ui/button';
 
 export default function Home() {
@@ -12,6 +13,7 @@ export default function Home() {
         }}
       >
         <Button>google登录</Button>
+        <Text />
       </form>
     </main>
   );

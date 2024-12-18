@@ -38,5 +38,7 @@ export default antfu({
     'style/brace-style': ['error', '1tbs'], // Use the default brace style
     'ts/consistent-type-definitions': ['error', 'type'], // Use `type` instead of `interface`
     'node/prefer-global/process': 'off', // Allow using `process.env`
+    'react-hooks/exhaustive-deps': 'off',
+    'no-console': 'off',
   },
 });

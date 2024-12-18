@@ -8,8 +8,9 @@
     "module": "esnext", // 生成代码的模块标准
     "moduleResolution": "bundler", // 模块解析策略
     "paths": {
-      "@/*": ["./src/*"],
-      "@/public/*": ["./public/*"]
+      "@public/*": ["./public/*"],
+      "@drizzle/*": ["./drizzle/*"],
+      "@/*": ["./src/*"]
     },
     "resolveJsonModule": true, // 自动解析JSON文件
     "types": [], // types用来指定需要包含的模块，只有在这里列出的模块的声明文件才会被加载进来
