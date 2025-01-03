@@ -1,15 +1,15 @@
-'use client';
+'use client'
 
-import { Input } from '@/components/ui/input';
+import { Input } from '@/components/ui/input'
 import {
   ChevronLeftIcon,
   ChevronRightIcon,
   ChevronsLeftIcon,
   ChevronsRightIcon,
-} from 'lucide-react';
-import { usePathname, useRouter, useSearchParams } from 'next/navigation';
-import { useState } from 'react';
-import { Button } from './ui/button';
+} from 'lucide-react'
+import { usePathname, useRouter, useSearchParams } from 'next/navigation'
+import { useState } from 'react'
+import { Button } from './ui/button'
 
 export function Pagination({
   page,
@@ -17,77 +17,77 @@ export function Pagination({
   pageSize,
   count,
 }: {
-  page: number;
-  totalPages: number;
-  pageSize: number;
-  count: number;
+  page: number
+  totalPages: number
+  pageSize: number
+  count: number
 }) {
-  const router = useRouter();
-  const searchParams = useSearchParams();
-  const pathname = usePathname();
-  const [pageValue, setPageValue] = useState<string>(page.toString());
+  const router = useRouter()
+  const searchParams = useSearchParams()
+  const pathname = usePathname()
+  const [pageValue, setPageValue] = useState<string>(page.toString())
   const [pageSizeValue, setPageSizeValue] = useState<string>(
     pageSize.toString(),
-  );
+  )
 
   function first() {
-    const params = new URLSearchParams(searchParams);
-    const newPage = '1';
-    params.set('page', newPage);
-    setPageValue(newPage);
-    router.push(`${pathname}?${params.toString()}`);
+    const params = new URLSearchParams(searchParams)
+    const newPage = '1'
+    params.set('page', newPage)
+    setPageValue(newPage)
+    router.push(`${pathname}?${params.toString()}`)
   }
 
   function previous() {
-    const params = new URLSearchParams(searchParams);
-    const newPage = (page - 1).toString();
-    params.set('page', newPage);
-    setPageValue(newPage);
-    router.push(`${pathname}?${params.toString()}`);
+    const params = new URLSearchParams(searchParams)
+    const newPage = (page - 1).toString()
+    params.set('page', newPage)
+    setPageValue(newPage)
+    router.push(`${pathname}?${params.toString()}`)
   }
 
   function next() {
-    const params = new URLSearchParams(searchParams);
-    const newPage = (page + 1).toString();
-    params.set('page', newPage);
-    setPageValue(newPage);
-    router.push(`${pathname}?${params.toString()}`);
+    const params = new URLSearchParams(searchParams)
+    const newPage = (page + 1).toString()
+    params.set('page', newPage)
+    setPageValue(newPage)
+    router.push(`${pathname}?${params.toString()}`)
   }
 
   function last() {
-    const params = new URLSearchParams(searchParams);
-    const newPage = totalPages.toString();
-    params.set('page', newPage);
-    setPageValue(newPage);
-    router.push(`${pathname}?${params.toString()}`);
+    const params = new URLSearchParams(searchParams)
+    const newPage = totalPages.toString()
+    params.set('page', newPage)
+    setPageValue(newPage)
+    router.push(`${pathname}?${params.toString()}`)
   }
 
   function handlePageKeyDown(e: React.KeyboardEvent<HTMLInputElement>) {
     if (e.key === 'Enter') {
-      const params = new URLSearchParams(searchParams);
-      const num = Number.parseInt(pageValue);
+      const params = new URLSearchParams(searchParams)
+      const num = Number.parseInt(pageValue)
       if (Number.isInteger(num)) {
-        params.set('page', num.toString());
-        router.push(`${pathname}?${params.toString()}`);
+        params.set('page', num.toString())
+        router.push(`${pathname}?${params.toString()}`)
       } else {
-        params.set('page', '1');
-        router.push(`${pathname}?${params.toString()}`);
-        setPageValue('1');
+        params.set('page', '1')
+        router.push(`${pathname}?${params.toString()}`)
+        setPageValue('1')
       }
     }
   }
 
   function handlePageSizeKeyDown(e: React.KeyboardEvent<HTMLInputElement>) {
     if (e.key === 'Enter') {
-      const params = new URLSearchParams(searchParams);
-      const num = Number.parseInt(pageSizeValue);
+      const params = new URLSearchParams(searchParams)
+      const num = Number.parseInt(pageSizeValue)
       if (Number.isInteger(num)) {
-        params.set('pageSize', num.toString());
-        router.push(`${pathname}?${params.toString()}`);
+        params.set('pageSize', num.toString())
+        router.push(`${pathname}?${params.toString()}`)
       } else {
-        params.set('pageSize', '1');
-        router.push(`${pathname}?${params.toString()}`);
-        setPageSizeValue('1');
+        params.set('pageSize', '1')
+        router.push(`${pathname}?${params.toString()}`)
+        setPageSizeValue('1')
       }
     }
   }
@@ -163,5 +163,5 @@ export function Pagination({
         <div className="text-nowrap">per page</div>
       </div>
     </div>
-  );
+  )
 }

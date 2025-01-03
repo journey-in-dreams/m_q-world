@@ -1,55 +1,55 @@
-'use client';
+'use client'
 
-import type { ReactNode } from 'react';
-import { MoveDownIcon, MoveUpIcon } from 'lucide-react';
-import { usePathname, useRouter, useSearchParams } from 'next/navigation';
-import { useEffect, useState } from 'react';
+import type { ReactNode } from 'react'
+import { MoveDownIcon, MoveUpIcon } from 'lucide-react'
+import { usePathname, useRouter, useSearchParams } from 'next/navigation'
+import { useEffect, useState } from 'react'
 
-type SortOrder = 'asc' | 'desc' | 'none';
+type SortOrder = 'asc' | 'desc' | 'none'
 
 export function Sortable({
   children,
   column,
 }: {
-  children: ReactNode;
-  column: string;
+  children: ReactNode
+  column: string
 }) {
-  const [sortOrder, setSortOrder] = useState<SortOrder>('none');
-  const router = useRouter();
-  const searchParams = useSearchParams();
-  const pathname = usePathname();
+  const [sortOrder, setSortOrder] = useState<SortOrder>('none')
+  const router = useRouter()
+  const searchParams = useSearchParams()
+  const pathname = usePathname()
 
   useEffect(() => {
-    const sort = searchParams.get('sort');
+    const sort = searchParams.get('sort')
     if (sort !== column) {
-      setSortOrder('none');
+      setSortOrder('none')
     }
-  }, [searchParams, column]);
+  }, [searchParams, column])
 
   function handleClick() {
-    const params = new URLSearchParams(searchParams);
+    const params = new URLSearchParams(searchParams)
 
     switch (sortOrder) {
       case 'asc':
-        setSortOrder('desc');
-        params.set('sortOrder', 'desc');
-        params.set('sort', column);
-        break;
+        setSortOrder('desc')
+        params.set('sortOrder', 'desc')
+        params.set('sort', column)
+        break
       case 'desc':
-        setSortOrder('none');
-        params.delete('sortOrder');
-        params.delete('sort');
-        break;
+        setSortOrder('none')
+        params.delete('sortOrder')
+        params.delete('sort')
+        break
       case 'none':
-        setSortOrder('asc');
-        params.set('sortOrder', 'asc');
-        params.set('sort', column);
-        break;
+        setSortOrder('asc')
+        params.set('sortOrder', 'asc')
+        params.set('sort', column)
+        break
       default:
-        throw new Error(`unhandled case: ${sortOrder}`);
+        throw new Error(`unhandled case: ${sortOrder}`)
     }
 
-    router.push(`${pathname}?${params.toString()}`);
+    router.push(`${pathname}?${params.toString()}`)
   }
 
   return (
@@ -57,7 +57,7 @@ export function Sortable({
       onClick={handleClick}
       onKeyDown={(e) => {
         if (e.key === 'Enter' || e.key === ' ') {
-          handleClick();
+          handleClick()
         }
       }}
       role="button"
@@ -69,5 +69,5 @@ export function Sortable({
       {sortOrder === 'desc' && <MoveDownIcon className="size-3" />}
       {sortOrder === 'none' && <div className="size-3"></div>}
     </div>
-  );
+  )
 }

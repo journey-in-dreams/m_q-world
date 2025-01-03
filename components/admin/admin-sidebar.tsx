@@ -1,18 +1,18 @@
-'use client';
+'use client'
 
-import { cn } from '@/lib/utils';
-import { GaugeIcon, Table2Icon } from 'lucide-react';
-import Link from 'next/link';
-import { usePathname } from 'next/navigation';
+import { cn } from '@/lib/utils'
+import { GaugeIcon, Table2Icon } from 'lucide-react'
+import Link from 'next/link'
+import { usePathname } from 'next/navigation'
 
 const items = [
   { title: 'Admin', url: '/admin', icon: GaugeIcon },
   { title: 'Users', url: '/admin/users', icon: Table2Icon },
 // [CODE_MARK admin-sidebar-items]
-];
+]
 
 export function AdminSidebar() {
-  const pathname = usePathname();
+  const pathname = usePathname()
 
   return (
     <div className="fixed top-8 z-20 flex min-h-screen w-8 flex-col border-r bg-background text-sm sm:w-40">
@@ -30,5 +30,5 @@ export function AdminSidebar() {
         </Link>
       ))}
     </div>
-  );
+  )
 }

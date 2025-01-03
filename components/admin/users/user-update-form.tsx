@@ -1,26 +1,26 @@
-'use client';
+'use client'
 
-import type { UpdateUserState } from '@/actions/admin/users/update-user';
-import type { User } from '@/schema/users';
-import { updateUser } from '@/actions/admin/users/update-user';
-import { Button } from '@/components/ui/button';
-import { Input } from '@/components/ui/input';
-import { Label } from '@/components/ui/label';
+import type { UpdateUserState } from '@/actions/admin/users/update-user'
+import type { User } from '@/schema/users'
+import { updateUser } from '@/actions/admin/users/update-user'
+import { Button } from '@/components/ui/button'
+import { Input } from '@/components/ui/input'
+import { Label } from '@/components/ui/label'
 
-import { startTransition, useActionState } from 'react';
+import { startTransition, useActionState } from 'react'
 
 export function UserUpdateForm({
   user,
 }: {
-  user: User;
+  user: User
 }) {
-  const initialState: UpdateUserState = {};
-  const [state, dispatch] = useActionState(updateUser, initialState);
+  const initialState: UpdateUserState = {}
+  const [state, dispatch] = useActionState(updateUser, initialState)
 
   function handleSubmit(event: React.FormEvent<HTMLFormElement>) {
-    event.preventDefault();
-    const formData = new FormData(event.target as HTMLFormElement);
-    startTransition(() => dispatch(formData));
+    event.preventDefault()
+    const formData = new FormData(event.target as HTMLFormElement)
+    startTransition(() => dispatch(formData))
   }
 
   return (
@@ -89,5 +89,5 @@ export function UserUpdateForm({
         {state.message && <p>{state.message}</p>}
       </form>
     </div>
-  );
+  )
 }

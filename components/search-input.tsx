@@ -1,23 +1,23 @@
-'use client';
+'use client'
 
-import { SearchIcon } from 'lucide-react';
-import { usePathname, useRouter, useSearchParams } from 'next/navigation';
-import { useState } from 'react';
-import { Button } from './ui/button';
-import { Input } from './ui/input';
+import { SearchIcon } from 'lucide-react'
+import { usePathname, useRouter, useSearchParams } from 'next/navigation'
+import { useState } from 'react'
+import { Button } from './ui/button'
+import { Input } from './ui/input'
 
 export function SearchInput({ placeholder }: { placeholder?: string }) {
-  const searchParams = useSearchParams();
-  const pathname = usePathname();
-  const router = useRouter();
+  const searchParams = useSearchParams()
+  const pathname = usePathname()
+  const router = useRouter()
 
-  const [text, setText] = useState('');
+  const [text, setText] = useState('')
 
   function handleSearch(e: React.FormEvent) {
-    e.preventDefault();
-    const params = new URLSearchParams(searchParams);
-    params.set('search', text);
-    router.push(`${pathname}?${params.toString()}`);
+    e.preventDefault()
+    const params = new URLSearchParams(searchParams)
+    params.set('search', text)
+    router.push(`${pathname}?${params.toString()}`)
   }
 
   return (
@@ -34,5 +34,5 @@ export function SearchInput({ placeholder }: { placeholder?: string }) {
         </Button>
       </form>
     </div>
-  );
+  )
 }

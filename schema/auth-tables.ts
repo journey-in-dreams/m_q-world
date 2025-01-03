@@ -1,5 +1,5 @@
-import type { AdapterAccountType } from 'next-auth/adapters';
-import { users } from '@/schema/users';
+import type { AdapterAccountType } from 'next-auth/adapters'
+import { users } from '@/schema/users'
 import {
   boolean,
   integer,
@@ -8,7 +8,7 @@ import {
   text,
   timestamp,
   uuid,
-} from 'drizzle-orm/pg-core';
+} from 'drizzle-orm/pg-core'
 
 export const accounts = pgTable(
   'accounts',
@@ -32,9 +32,9 @@ export const accounts = pgTable(
       {
         pk: primaryKey({ columns: [account.provider, account.providerAccountId] }),
       },
-    ];
+    ]
   },
-);
+)
 
 export const sessions = pgTable('sessions', {
   sessionToken: text().primaryKey(),
@@ -42,7 +42,7 @@ export const sessions = pgTable('sessions', {
     .notNull()
     .references(() => users.id, { onDelete: 'cascade' }),
   expires: timestamp({ mode: 'date' }).notNull(),
-});
+})
 
 export const verificationTokens = pgTable(
   'verification_tokens',
@@ -56,9 +56,9 @@ export const verificationTokens = pgTable(
       pk: primaryKey({
         columns: [verificationToken.identifier, verificationToken.token],
       }),
-    }];
+    }]
   },
-);
+)
 
 export const authenticators = pgTable(
   'authenticators',
@@ -79,6 +79,6 @@ export const authenticators = pgTable(
       pk: primaryKey({
         columns: [authenticator.userId, authenticator.credentialID],
       }),
-    }];
+    }]
   },
-);
+)

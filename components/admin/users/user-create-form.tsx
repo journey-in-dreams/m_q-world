@@ -1,20 +1,20 @@
-'use client';
+'use client'
 
-import type { CreateUserState } from '@/actions/admin/users/create-user';
-import { createUser } from '@/actions/admin/users/create-user';
-import { Button } from '@/components/ui/button';
-import { Input } from '@/components/ui/input';
-import { Label } from '@/components/ui/label';
-import { startTransition, useActionState } from 'react';
+import type { CreateUserState } from '@/actions/admin/users/create-user'
+import { createUser } from '@/actions/admin/users/create-user'
+import { Button } from '@/components/ui/button'
+import { Input } from '@/components/ui/input'
+import { Label } from '@/components/ui/label'
+import { startTransition, useActionState } from 'react'
 
 export function UserCreateForm() {
-  const initialState: CreateUserState = {};
-  const [state, dispatch] = useActionState(createUser, initialState);
+  const initialState: CreateUserState = {}
+  const [state, dispatch] = useActionState(createUser, initialState)
 
   function handleSubmit(event: React.FormEvent<HTMLFormElement>) {
-    event.preventDefault();
-    const formData = new FormData(event.target as HTMLFormElement);
-    startTransition(() => dispatch(formData));
+    event.preventDefault()
+    const formData = new FormData(event.target as HTMLFormElement)
+    startTransition(() => dispatch(formData))
   }
 
   return (
@@ -68,5 +68,5 @@ export function UserCreateForm() {
         {state.message && <p>{state.message}</p>}
       </form>
     </div>
-  );
+  )
 }

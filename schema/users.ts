@@ -3,8 +3,7 @@ import {
   text,
   timestamp,
   uuid,
-
-} from 'drizzle-orm/pg-core';
+} from 'drizzle-orm/pg-core'
 
 export const users = pgTable('users', {
   id: uuid().primaryKey().$defaultFn(() => crypto.randomUUID()),
@@ -17,6 +16,6 @@ export const users = pgTable('users', {
   createdAt: timestamp().notNull().defaultNow(),
   updatedAt: timestamp().notNull().defaultNow().$onUpdate(() => new Date()),
   // [CODE_MARK users-table]
-});
+})
 
-export type User = typeof users.$inferSelect;
+export type User = typeof users.$inferSelect

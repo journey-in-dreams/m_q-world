@@ -1,7 +1,7 @@
-import antfu from '@antfu/eslint-config';
-import nextPlugin from '@next/eslint-plugin-next';
-import jsxA11y from 'eslint-plugin-jsx-a11y';
-import tailwind from 'eslint-plugin-tailwindcss';
+import antfu from '@antfu/eslint-config'
+import nextPlugin from '@next/eslint-plugin-next'
+import jsxA11y from 'eslint-plugin-jsx-a11y'
+import tailwind from 'eslint-plugin-tailwindcss'
 
 export default antfu({
   react: true,
@@ -11,7 +11,7 @@ export default antfu({
   isInEditor: false,
 
   stylistic: {
-    semi: true,
+    semi: false,
     indent: 2, // 4, or 'tab'
     quotes: 'single', // or 'double'
   },
@@ -41,4 +41,4 @@ export default antfu({
     'no-console': 'off',
     'react-refresh/only-export-components': 'off',
   },
-});
+})

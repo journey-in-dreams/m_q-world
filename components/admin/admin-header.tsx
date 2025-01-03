@@ -1,18 +1,18 @@
-import type { User } from '@/schema/users';
-import { LogOutIcon, SettingsIcon, User2Icon } from 'lucide-react';
-import Link from 'next/link';
-import { Avatar, AvatarFallback, AvatarImage } from '../ui/avatar';
+import type { User } from '@/schema/users'
+import { LogOutIcon, SettingsIcon, User2Icon } from 'lucide-react'
+import Link from 'next/link'
+import { Avatar, AvatarFallback, AvatarImage } from '../ui/avatar'
 import {
   DropdownMenu,
   DropdownMenuContent,
   DropdownMenuItem,
   DropdownMenuTrigger,
-} from '../ui/dropdown-menu';
+} from '../ui/dropdown-menu'
 
 const items = [
   { title: 'Settings', url: '/admin/settings', icon: SettingsIcon },
   { title: 'Sign out', url: '/signout', icon: LogOutIcon },
-];
+]
 
 export function AdminHeader({ user }: { user: User }) {
   return (
@@ -50,5 +50,5 @@ export function AdminHeader({ user }: { user: User }) {
         </div>
       </div>
     </header>
-  );
+  )
 }

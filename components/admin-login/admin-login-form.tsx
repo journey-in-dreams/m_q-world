@@ -1,20 +1,20 @@
-'use client';
+'use client'
 
-import type { AdminLoginState } from '@/actions/admin-login/admin-login';
-import { adminLogin } from '@/actions/admin-login/admin-login';
-import { Button } from '@/components/ui/button';
-import { Input } from '@/components/ui/input';
-import { Label } from '@/components/ui/label';
-import { startTransition, useActionState } from 'react';
+import type { AdminLoginState } from '@/actions/admin-login/admin-login'
+import { adminLogin } from '@/actions/admin-login/admin-login'
+import { Button } from '@/components/ui/button'
+import { Input } from '@/components/ui/input'
+import { Label } from '@/components/ui/label'
+import { startTransition, useActionState } from 'react'
 
 export function AdminLoginForm() {
-  const initialState: AdminLoginState = {};
-  const [state, dispatch] = useActionState(adminLogin, initialState);
+  const initialState: AdminLoginState = {}
+  const [state, dispatch] = useActionState(adminLogin, initialState)
 
   function handleSubmit(e: React.FormEvent) {
-    e.preventDefault();
-    const formData = new FormData(e.target as HTMLFormElement);
-    startTransition(() => dispatch(formData));
+    e.preventDefault()
+    const formData = new FormData(e.target as HTMLFormElement)
+    startTransition(() => dispatch(formData))
   }
 
   return (
@@ -37,5 +37,5 @@ export function AdminLoginForm() {
       </Button>
       {state.message && <p>{state.message}</p>}
     </form>
-  );
+  )
 }

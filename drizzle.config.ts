@@ -1,8 +1,8 @@
-import dotenv from 'dotenv';
+import dotenv from 'dotenv'
 
-import { defineConfig } from 'drizzle-kit';
+import { defineConfig } from 'drizzle-kit'
 
-dotenv.config({ path: '.env.local' });
+dotenv.config({ path: '.env.local' })
 
 export default defineConfig({
   out: './drizzle',
@@ -14,4 +14,4 @@ export default defineConfig({
   verbose: true,
   strict: true,
   casing: 'snake_case',
-});
+})

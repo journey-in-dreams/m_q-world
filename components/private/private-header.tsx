@@ -1,18 +1,18 @@
-import type { User } from '@/schema/users';
-import { LogOutIcon, User2Icon, UserIcon } from 'lucide-react';
-import Link from 'next/link';
-import { Avatar, AvatarFallback, AvatarImage } from '../ui/avatar';
+import type { User } from '@/schema/users'
+import { LogOutIcon, User2Icon, UserIcon } from 'lucide-react'
+import Link from 'next/link'
+import { Avatar, AvatarFallback, AvatarImage } from '../ui/avatar'
 import {
   DropdownMenu,
   DropdownMenuContent,
   DropdownMenuItem,
   DropdownMenuTrigger,
-} from '../ui/dropdown-menu';
+} from '../ui/dropdown-menu'
 
 const items = [
   { title: 'Profile', url: '/profile', icon: UserIcon },
   { title: 'Sign out', url: '/signout', icon: LogOutIcon },
-];
+]
 
 export function PrivateHeader({ user }: { user: User }) {
   return (
@@ -50,5 +50,5 @@ export function PrivateHeader({ user }: { user: User }) {
         </div>
       </div>
     </header>
-  );
+  )
 }

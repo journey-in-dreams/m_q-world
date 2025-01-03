@@ -1,20 +1,20 @@
-'use client';
+'use client'
 
-import type { SignInState } from '@/actions/signin/signin-action';
-import { signInAction } from '@/actions/signin/signin-action';
-import { Button } from '@/components/ui/button';
-import { Input } from '@/components/ui/input';
-import { Label } from '@/components/ui/label';
-import { startTransition, useActionState } from 'react';
+import type { SignInState } from '@/actions/signin/signin-action'
+import { signInAction } from '@/actions/signin/signin-action'
+import { Button } from '@/components/ui/button'
+import { Input } from '@/components/ui/input'
+import { Label } from '@/components/ui/label'
+import { startTransition, useActionState } from 'react'
 
 export function SignInForm() {
-  const initialState: SignInState = {};
-  const [state, dispatch] = useActionState(signInAction, initialState);
+  const initialState: SignInState = {}
+  const [state, dispatch] = useActionState(signInAction, initialState)
 
   function handleSubmit(e: React.FormEvent) {
-    e.preventDefault();
-    const formData = new FormData(e.target as HTMLFormElement);
-    startTransition(() => dispatch(formData));
+    e.preventDefault()
+    const formData = new FormData(e.target as HTMLFormElement)
+    startTransition(() => dispatch(formData))
   }
 
   return (
@@ -45,5 +45,5 @@ export function SignInForm() {
       </Button>
       {state.message && <p>{state.message}</p>}
     </form>
-  );
+  )
 }

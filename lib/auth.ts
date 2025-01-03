@@ -1,17 +1,21 @@
-import type { User } from '@/schema/users';
-import type { Adapter } from 'next-auth/adapters';
-import type { Provider } from 'next-auth/providers';
-import { db } from '@/lib/db';
-import { accounts, sessions, verificationTokens } from '@/schema/auth-tables';
-import { users } from '@/schema/users';
-import { DrizzleAdapter } from '@auth/drizzle-adapter';
-import bcrypt from 'bcrypt';
+import type { Adapter, AdapterUser } from 'next-auth/adapters'
+import type { Provider } from 'next-auth/providers'
+import { db } from '@/lib/db'
 
-import { eq } from 'drizzle-orm';
-import NextAuth from 'next-auth';
-import Credentials from 'next-auth/providers/credentials';
-import GitHub from 'next-auth/providers/github';
-import Google from 'next-auth/providers/google';
+import { accounts, sessions, verificationTokens } from '@/schema/auth-tables'
+import { users } from '@/schema/users'
+
+import { DrizzleAdapter } from '@auth/drizzle-adapter'
+import bcrypt from 'bcrypt'
+import dotenv from 'dotenv'
+import { eq } from 'drizzle-orm'
+
+import NextAuth from 'next-auth'
+import Credentials from 'next-auth/providers/credentials'
+import GitHub from 'next-auth/providers/github'
+import Google from 'next-auth/providers/google'
+
+dotenv.config({ path: '.env.local' })
 
 const adapter = {
   ...(DrizzleAdapter(db, {
@@ -20,20 +24,7 @@ const adapter = {
     sessionsTable: sessions,
     verificationTokensTable: verificationTokens,
   }) as Adapter),
-  createUser: async (data: User) => {
-    const newUser = {
-      id: crypto.randomUUID(),
-      email: data.email,
-      name: data.name,
-      image: data.image,
-      emailVerified: data.emailVerified,
-      role: 'user',
-    };
-
-    await db.insert(users).values(newUser);
-    return newUser;
-  },
-};
+}
 
 const providers: Provider[] = [
   Credentials({
@@ -42,52 +33,64 @@ const providers: Provider[] = [
       password: { type: 'password' },
     },
     authorize: async (credentials) => {
-      const email = credentials.email as string;
-      const password = credentials.password as string;
+      const email = credentials.email as string
+      const password = credentials.password as string
       const userObj = await db.query.users.findFirst({
         where: eq(users.email, email),
-      });
+      })
       if (!userObj) {
-        throw new Error('User not found.');
+        throw new Error('User not found.')
       }
       if (!userObj.password) {
-        throw new Error('Password not found.');
+        throw new Error('Password not found.')
       }
-      const valid = bcrypt.compareSync(password, userObj.password);
+      const valid = bcrypt.compareSync(password, userObj.password)
       if (!valid) {
-        throw new Error('Invalid password.');
+        throw new Error('Invalid password.')
       }
-      return userObj;
+      return userObj
     },
   }),
   GitHub,
-  Google,
-];
+  Google({
+    clientId: process.env.AUTH_GOOGLE_ID,
+    clientSecret: process.env.AUTH_GOOGLE_SECRET,
+    profile(profile) {
+      return {
+        id: profile.sub,
+        name: profile.name,
+        email: profile.email,
+        image: profile.picture,
+        emailVerified: profile.email_verified,
+        role: 'user',
+      }
+    },
+  }),
+]
 
 export const { handlers, auth, signIn, signOut } = NextAuth({
   secret: process.env.AUTH_SECRET,
   adapter,
-
-  session: {
-    strategy: 'jwt',
-  },
   providers,
+  session: {
+    maxAge: 24 * 60 * 60,
+  },
   pages: {
     signIn: '/signin',
   },
-
-  callbacks: {
-    jwt({ token, user }) {
-      if (user) {
-        token.id = user.id as string;
-        token.role = user.role as string;
+  events: {
+    linkAccount: async ({ user, profile }) => {
+      // 第三方(Google, GitHub)认证过的邮箱直接认证
+      const adapterProfile = profile as AdapterUser
+      const partialUser: Partial<AdapterUser> & Pick<AdapterUser, 'id'> = {
+        id: user.id as string,
+        emailVerified: adapterProfile.emailVerified ? new Date() : null,
       }
-      return token;
-    },
-    session({ session, token }) {
-      session.user.id = token.id as string;
-      session.user.role = token.role as string;
-      return session;
+      if (adapter && adapter.updateUser) {
+        await adapter.updateUser(partialUser)
+      } else {
+        console.error('Adapter or updateUser function is undefined')
+      }
     },
   },
-});
+})

@@ -1,14 +1,14 @@
-'use client';
+'use client'
 
-import type { DeleteUserState } from '@/actions/admin/users/delete-user';
-import type { User } from '@/schema/users';
-import { deleteUser } from '@/actions/admin/users/delete-user';
-import { Button } from '@/components/ui/button';
-import { useActionState } from 'react';
+import type { DeleteUserState } from '@/actions/admin/users/delete-user'
+import type { User } from '@/schema/users'
+import { deleteUser } from '@/actions/admin/users/delete-user'
+import { Button } from '@/components/ui/button'
+import { useActionState } from 'react'
 
 export function UserDeleteForm({ user }: { user: User }) {
-  const initialState: DeleteUserState = {};
-  const [state, dispatch] = useActionState(deleteUser, initialState);
+  const initialState: DeleteUserState = {}
+  const [state, dispatch] = useActionState(deleteUser, initialState)
 
   return (
     <div>
@@ -22,5 +22,5 @@ export function UserDeleteForm({ user }: { user: User }) {
         {state.message && <p>{state.message}</p>}
       </form>
     </div>
-  );
+  )
 }

@@ -3,5 +3,5 @@ export default function Page() {
     <div className="p-2">
       <h1 className="font-bold">Admin</h1>
     </div>
-  );
+  )
 }

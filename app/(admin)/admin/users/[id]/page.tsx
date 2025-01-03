@@ -1,17 +1,17 @@
-import { getUserWithRelations } from '@/repositories/user-repository';
-import { notFound } from 'next/navigation';
+import { getUserWithRelations } from '@/repositories/user-repository'
+import { notFound } from 'next/navigation'
 
-type Params = Promise<{ id: string }>;
+type Params = Promise<{ id: string }>
 
 export default async function Page(props: { params: Params }) {
-  const { params } = props;
-  const paramsInfo = await params;
-  const { id } = paramsInfo;
+  const { params } = props
+  const paramsInfo = await params
+  const { id } = paramsInfo
 
-  const userObj = await getUserWithRelations(id);
+  const userObj = await getUserWithRelations(id)
 
   if (!userObj) {
-    notFound();
+    notFound()
   }
 
   return (
@@ -58,5 +58,5 @@ export default async function Page(props: { params: Params }) {
         { userObj.updatedAt?.toLocaleString() }
       </p>
     </div>
-  );
+  )
 }

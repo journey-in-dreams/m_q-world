@@ -1,5 +1,5 @@
-import { AdminLoginForm } from '@/components/admin-login/admin-login-form';
-import { Card, CardContent, CardHeader, CardTitle } from '@/components/ui/card';
+import { AdminLoginForm } from '@/components/admin-login/admin-login-form'
+import { Card, CardContent, CardHeader, CardTitle } from '@/components/ui/card'
 
 export default async function Page() {
   return (
@@ -13,5 +13,5 @@ export default async function Page() {
         </CardContent>
       </Card>
     </div>
-  );
+  )
 }

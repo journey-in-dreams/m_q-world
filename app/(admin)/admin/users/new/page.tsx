@@ -1,4 +1,4 @@
-import { UserCreateForm } from '@/components/admin/users/user-create-form';
+import { UserCreateForm } from '@/components/admin/users/user-create-form'
 
 export default async function Page() {
   return (
@@ -6,5 +6,5 @@ export default async function Page() {
       <h1 className="font-bold">New User</h1>
       <UserCreateForm />
     </div>
-  );
+  )
 }

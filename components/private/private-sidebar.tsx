@@ -1,17 +1,17 @@
-'use client';
+'use client'
 
-import { cn } from '@/lib/utils';
-import { LayoutDashboardIcon } from 'lucide-react';
-import Link from 'next/link';
-import { usePathname } from 'next/navigation';
+import { cn } from '@/lib/utils'
+import { LayoutDashboardIcon } from 'lucide-react'
+import Link from 'next/link'
+import { usePathname } from 'next/navigation'
 
 const items = [
   { title: 'Dashboard', url: '/dashboard', icon: LayoutDashboardIcon },
 // [CODE_MARK private-sidebar-items]
-];
+]
 
 export function PrivateSidebar() {
-  const pathname = usePathname();
+  const pathname = usePathname()
 
   return (
     <div className="fixed top-8 z-20 flex min-h-screen w-8 flex-col border-r bg-background text-sm sm:w-40">
@@ -29,5 +29,5 @@ export function PrivateSidebar() {
         </Link>
       ))}
     </div>
-  );
+  )
 }
