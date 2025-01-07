@@ -5,11 +5,8 @@ import * as SeparatorPrimitive from '@radix-ui/react-separator'
 
 import * as React from 'react'
 
-const Separator = (
-  { ref, className, orientation = 'horizontal', decorative = true, ...props }: React.ComponentPropsWithoutRef<typeof SeparatorPrimitive.Root> & { ref?: React.RefObject<React.ElementRef<typeof SeparatorPrimitive.Root>> },
-) => (
+const Separator: React.FC<React.ComponentProps<typeof SeparatorPrimitive.Root>> = ({ className, orientation = 'horizontal', decorative = true, ...props }) => (
   <SeparatorPrimitive.Root
-    ref={ref}
     decorative={decorative}
     orientation={orientation}
     className={cn(
