@@ -10,6 +10,10 @@ export default {
   ],
   theme: {
     extend: {
+      fontSize: {
+        xs: ['12px', '20px'],
+        sm: ['14px', '22px'],
+      },
       colors: {
         background: 'hsl(var(--background))',
         foreground: 'hsl(var(--foreground))',
@@ -56,6 +60,32 @@ export default {
         lg: 'var(--radius)',
         md: 'calc(var(--radius) - 2px)',
         sm: 'calc(var(--radius) - 4px)',
+      },
+      keyframes: {
+        signUpForm: {
+          '0%': { transform: 'translateX(16px)' },
+          '100%': { transform: 'translateX(332px)' },
+        },
+        signInForm: {
+          '0%': { transform: 'translateX(332px)' },
+          '100%': { transform: 'translateX(16px)' },
+        },
+        signUpLogo: {
+          '0%': { transform: 'translateX(332px)', boxShadow: '0 4px 16px rgba(0,0,0,0.3)' },
+          '90%': { boxShadow: '0 4px 16px rgba(0,0,0,0.3)' },
+          '100%': { transform: 'translateX(16px)', boxShadow: 'none' },
+        },
+        signInLogo: {
+          '0%': { transform: 'translateX(16px)', boxShadow: '0 4px 16px rgba(0,0,0,0.3)' },
+          '90%': { boxShadow: '0 4px 16px rgba(0,0,0,0.3)' },
+          '100%': { transform: 'translateX(332px)', boxShadow: 'none' },
+        },
+      },
+      animation: {
+        signInForm: 'signInForm 0.5s ease-in-out forwards',
+        signUpForm: 'signUpForm 0.5s ease-in-out forwards',
+        signInLogo: 'signInLogo 0.5s ease-in-out forwards',
+        signUpLogo: 'signUpLogo 0.5s ease-in-out forwards',
       },
     },
   },

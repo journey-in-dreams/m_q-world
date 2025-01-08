@@ -12,8 +12,8 @@ export default antfu({
 
   stylistic: {
     semi: false,
-    indent: 2, // 4, or 'tab'
-    quotes: 'single', // or 'double'
+    indent: 2,
+    quotes: 'single',
   },
 
   formatters: {
@@ -40,5 +40,7 @@ export default antfu({
     'react-hooks/exhaustive-deps': 'off',
     'no-console': 'off',
     'react-refresh/only-export-components': 'off',
+    'jsx-a11y/click-events-have-key-events': 'off',
+    'jsx-a11y/no-static-element-interactions': 'off',
   },
 })

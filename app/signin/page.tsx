@@ -1,22 +1,14 @@
-import { SignInForm } from '@/components/signin/signin-form'
-import { Button } from '@/components/ui/button'
-import { Card, CardContent, CardHeader, CardTitle } from '@/components/ui/card'
-import { Separator } from '@/components/ui/separator'
-import { signIn } from '@/lib/auth'
-import { AuthError } from 'next-auth'
-import { redirect } from 'next/navigation'
+import Login from '@/components/login'
 
-type SearchParams = Promise<{ [key: string]: string | string[] | undefined }>
+// type SearchParams = Promise<{ [key: string]: string | string[] | undefined }>
 
-export default async function Page(props: {
-  searchParams: SearchParams
-}) {
-  const { searchParams } = props
-  const searchParamsInfo = await searchParams
+export default async function Page() {
+  // const { searchParams } = props
+  // const searchParamsInfo = await searchParams
 
   return (
     <div className="flex min-h-screen items-center justify-center">
-      <Card>
+      {/* <Card>
         <CardHeader>
           <CardTitle>Sign In</CardTitle>
         </CardHeader>
@@ -65,13 +57,14 @@ export default async function Page(props: {
             </Button>
           </form>
           <Separator className="my-4" />
-          <SignInForm />
+
           <Separator className="my-4" />
           {searchParamsInfo.error && (
             <p>Login failed</p>
           )}
         </CardContent>
-      </Card>
+      </Card> */}
+      <Login />
     </div>
   )
 }

@@ -19,7 +19,7 @@ export async function signInAction(
       password: formData.get('password'),
     })
   } catch (error) {
-    console.error(error)
+    console.error('error: ', error)
     return {
       message: 'Sign in failed.',
     }

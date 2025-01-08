@@ -79,7 +79,7 @@ const FormItem: React.FC<React.ComponentProps<'div'>> = ({ className, ...props }
 
   return (
     <FormItemContext value={{ id }}>
-      <div className={cn('space-y-2', className)} {...props} />
+      <div className={cn(className)} {...props} />
     </FormItemContext>
   )
 }
@@ -133,14 +133,10 @@ const FormMessage: React.FC<React.ComponentProps<'p'>> = ({ className, children,
   const { error, formMessageId } = useFormField()
   const body = error ? String(error?.message) : children
 
-  if (!body) {
-    return null
-  }
-
   return (
     <p
       id={formMessageId}
-      className={cn('text-[0.8rem] font-medium text-destructive', className)}
+      className={cn('text-xs font-medium min-h-5', body ? 'text-destructive' : '', className)}
       {...props}
     >
       {body}
