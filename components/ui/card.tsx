@@ -5,7 +5,7 @@ import * as React from 'react'
 const Card: React.FC<React.ComponentProps<'div'>> = ({ className, ...props }) => (
   <div
     className={cn(
-      'rounded-xl border bg-card text-card-foreground shadow',
+      'rounded-xl border bg-card text-card-foreground shadow-sm',
       className,
     )}
     {...props}

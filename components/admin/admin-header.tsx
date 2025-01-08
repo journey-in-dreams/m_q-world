@@ -23,7 +23,7 @@ export function AdminHeader({ user }: { user: User }) {
         </div>
         <div>
           <DropdownMenu modal={false}>
-            <DropdownMenuTrigger className="flex h-8 items-center gap-2 px-2 hover:bg-muted focus:outline-none">
+            <DropdownMenuTrigger className="flex h-8 items-center gap-2 px-2 hover:bg-muted focus:outline-hidden">
               <Avatar className="size-6">
                 <AvatarImage src={user.image ?? undefined} />
                 <AvatarFallback>

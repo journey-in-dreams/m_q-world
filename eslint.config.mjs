@@ -1,7 +1,7 @@
 import antfu from '@antfu/eslint-config'
 import nextPlugin from '@next/eslint-plugin-next'
 import jsxA11y from 'eslint-plugin-jsx-a11y'
-import tailwind from 'eslint-plugin-tailwindcss'
+// import tailwind from 'eslint-plugin-tailwindcss'
 
 export default antfu({
   react: true,
@@ -24,7 +24,7 @@ export default antfu({
     'migrations/**/*',
     'next-env.d.ts',
   ],
-}, ...tailwind.configs['flat/recommended'], jsxA11y.flatConfigs.recommended, {
+}, jsxA11y.flatConfigs.recommended, {
   plugins: {
     '@next/next': nextPlugin,
   },
