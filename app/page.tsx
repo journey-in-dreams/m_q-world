@@ -21,7 +21,7 @@ export default function Page() {
           <Button className="w-full" variant="outline">
             <LayoutDashboardIcon />
             {' '}
-            User Dashboard
+            User Dashboard1
           </Button>
         </Link>
         <Link href="/admin">
