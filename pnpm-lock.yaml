@@ -160,9 +160,6 @@ devDependencies:
   eslint-plugin-react-refresh:
     specifier: ^0.4.16
     version: 0.4.16(eslint@9.17.0)
-  eslint-plugin-tailwindcss:
-    specifier: ^3.17.5
-    version: 3.17.5(tailwindcss@4.0.0-beta.8)
   husky:
     specifier: ^9.1.7
     version: 9.1.7
@@ -4664,17 +4661,6 @@ packages:
       refa: 0.12.1
       regexp-ast-analysis: 0.7.1
       scslre: 0.3.0
-    dev: true
-
-  /eslint-plugin-tailwindcss@3.17.5(tailwindcss@4.0.0-beta.8):
-    resolution: {integrity: sha512-8Mi7p7dm+mO1dHgRHHFdPu4RDTBk69Cn4P0B40vRQR+MrguUpwmKwhZy1kqYe3Km8/4nb+cyrCF+5SodOEmaow==}
-    engines: {node: '>=18.12.0'}
-    peerDependencies:
-      tailwindcss: ^3.4.0
-    dependencies:
-      fast-glob: 3.3.2
-      postcss: 8.4.49
-      tailwindcss: 4.0.0-beta.8
     dev: true
 
   /eslint-plugin-toml@0.12.0(eslint@9.17.0):

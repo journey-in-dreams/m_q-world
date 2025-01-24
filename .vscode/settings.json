@@ -62,6 +62,7 @@
     "bunx",
     "commitlint",
     "pnpx",
-    "turbopack"
+    "turbopack",
+    "VERCEL"
   ]
 }
