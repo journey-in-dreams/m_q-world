@@ -136,7 +136,7 @@ const FormMessage: React.FC<React.ComponentProps<'p'>> = ({ className, children,
   return (
     <p
       id={formMessageId}
-      className={cn('text-xs font-medium min-h-5', body ? 'text-destructive' : '', className)}
+      className={cn('mt-1 text-xs font-medium min-h-5', body ? 'text-destructive' : '', className)}
       {...props}
     >
       {body}
