@@ -1,6 +1,6 @@
 import type { Metadata } from 'next'
 import { ThemeProvider } from '@/components/theme-provider'
-import { Toaster } from '@/components/ui/toaster'
+import { Toaster } from '@/components/ui/sonner'
 import { Geist, Geist_Mono } from 'next/font/google'
 import '@/style/globals.css'
 
@@ -37,7 +37,7 @@ export default function RootLayout({
         >
           {children}
         </ThemeProvider>
-        <Toaster />
+        <Toaster position="top-center" />
       </body>
     </html>
   )

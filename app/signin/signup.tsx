@@ -8,12 +8,12 @@ import {
   FormMessage,
 } from '@/components/ui/form'
 import { Input } from '@/components/ui/input'
-import { useToast } from '@/hooks/use-toast'
 import { sendSignupEmail } from '@/lib/mail'
 import { zodResolver } from '@hookform/resolvers/zod'
 import NextForm from 'next/form'
 import Link from 'next/link'
 import { useForm } from 'react-hook-form'
+import { toast } from 'sonner'
 
 import { z } from 'zod'
 
@@ -25,7 +25,6 @@ const FormSchema = z.object({
 
 export default function Logon(props: { accept: boolean | 'indeterminate' }) {
   const { accept } = props
-  const { toast } = useToast()
 
   const form = useForm<z.infer<typeof FormSchema>>({
     resolver: zodResolver(FormSchema),
@@ -39,12 +38,7 @@ export default function Logon(props: { accept: boolean | 'indeterminate' }) {
   function onSubmit(data: z.infer<typeof FormSchema>) {
     sendSignupEmail(data.email)
     console.log(accept)
-    toast({
-      title: '',
-      description: (
-        <Link href="https://mail.qq.com" target="_blank">已向您的邮箱发送验证链接，点击前往</Link>
-      ),
-    })
+    toast(<Link href="https://mail.qq.com" target="_blank">已向您的邮箱发送验证链接，点击前往</Link>)
   }
 
   return (
