@@ -1,41 +1,31 @@
-### 特征
+# shadcn/ui monorepo template
 
-- ⚡ [Next.js](https://nextjs.org) 支持 App Router
-- 🔥 类型检查 [TypeScript](https://www.typescriptlang.org)
-- 💎 集成 [Tailwind CSS](https://tailwindcss.com)
-- ✅ TypeScript 和 React 18 的严格模式
-- 🔒 与 [next-auth](https://next-auth.js.org/providers/google) 进行身份验证：注册、登录、退出、忘记密码、重置密码等。
-- 📦 使用 [DrizzleORM](https://orm.drizzle.team/docs/views) 实现类型安全的 ORM，使用的MySQL
-- 💽 使用的MySQL
-- ♻️  使用 T3 Env 实现类型安全的环境变量
-- 🔴 使用 Zod 进行验证的库
-- 📏 使用 [ESLint](https://eslint.org) 进行 Linter （默认 Next.js、Next.js Core Web Vitals、Tailwind CSS 和 Antfu 配置）
-- 💡 使用 `@` 前缀的绝对路径导入
-- 🦊 Git Hooks使用Husky
-- 🚫 用 Lint-staged 在 Git 暂存文件上运行 linters
-- 🚓 使用 Commitlint 检查 git commit
-- 📓 使用 Commitizen 编写符合标准的提交消息
+This template is for creating a monorepo with shadcn/ui.
 
-### 要求
+## Usage
 
-- Node.js 20+ and pnpm
+```bash
+pnpm dlx shadcn@latest init
+```
 
-### 项目结构
+## Adding components
 
-```shell
-.
-├── README.md                       # README file
-├── .husky                          # Husky configuration
-├── .vscode                         # VSCode configuration
-├── public                          # Public assets folder
-├── drizzle                         # drizzle assets folder
-├── src
-│   ├── app                         # Next JS App (App Router)
-│   ├── components                  # React components
-│   ├── locales                     # Locales folder (i18n messages)
-│   ├── styles                      # Styles folder
-│   ├── types                       # Type definitions
-│   ├── utils                       # Utilities folder
-├── tailwind.config.js              # Tailwind CSS configuration
-└── tsconfig.json                   # TypeScript configuration
+To add components to your app, run the following command at the root of your `web` app:
+
+```bash
+pnpm dlx shadcn@latest add button -c apps/web
+```
+
+This will place the ui components in the `packages/ui/src/components` directory.
+
+## Tailwind
+
+Your `tailwind.config.ts` and `globals.css` are already set up to use the components from the `ui` package.
+
+## Using components
+
+To use the components in your app, import them from the `ui` package.
+
+```tsx
+import { Button } from "@workspace/ui/components/button"
 ```
