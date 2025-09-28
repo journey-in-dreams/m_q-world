@@ -1,5 +1,5 @@
 {
-  "name": "my-turborepo",
+  "name": "m_q-world",
   "private": true,
   "scripts": {
     "build": "turbo run build",
@@ -9,12 +9,12 @@
     "check-types": "turbo run check-types"
   },
   "devDependencies": {
-    "prettier": "^3.6.0",
-    "turbo": "^2.5.4",
-    "typescript": "5.8.2"
+    "prettier": "catalog:",
+    "turbo": "catalog:",
+    "typescript": "catalog:"
   },
-  "packageManager": "pnpm@9.0.0",
+  "packageManager": "pnpm@10.15.1",
   "engines": {
-    "node": ">=18"
+    "node": ">=20"
   }
 }
