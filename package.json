@@ -13,7 +13,7 @@
     "turbo": "catalog:",
     "typescript": "catalog:"
   },
-  "packageManager": "pnpm@10.15.1",
+  "packageManager": "pnpm@10.18.2",
   "engines": {
     "node": ">=20"
   }

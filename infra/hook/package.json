@@ -1,0 +1,22 @@
+{
+  "name": "@mq/hook",
+  "version": "0.0.0",
+  "type": "module",
+  "private": true,
+  "scripts": {
+    "lint": "eslint . --max-warnings 0"
+  },
+  "dependencies": {
+    "react": "catalog:",
+    "react-dom": "catalog:"
+  },
+  "devDependencies": {
+    "@types/react": "catalog:",
+    "@types/react-dom": "catalog:",
+    "@mq/eslint-config": "workspace:*",
+    "@mq/ts-config": "workspace:*"
+  },
+  "exports": {
+    "./*": "./src/*.ts"
+  }
+}
