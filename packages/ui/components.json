@@ -15,8 +15,8 @@
     "components": "@/components/story",
     "utils": "@mq/utils/index",
     "ui": "@/components/ui",
-    "lib": "@/lib",
-    "hooks": "@/hooks"
+    "lib": "@mq/utils",
+    "hooks": "@mq//hooks"
   },
   "registries": {
     "@storybook": "https://registry.lloydrichards.dev/v2/r/{name}.json"

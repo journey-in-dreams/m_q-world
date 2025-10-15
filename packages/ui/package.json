@@ -51,6 +51,10 @@
     "vaul": "catalog:"
   },
   "devDependencies": {
+    "@mq/eslint-config": "workspace:*",
+    "@mq/ts-config": "workspace:*",
+    "@mq/utils": "workspace:*",
+    "@mq/hooks": "workspace:*",
     "@chromatic-com/storybook": "catalog:",
     "@eslint/eslintrc": "catalog:",
     "@storybook/addon-a11y": "catalog:",
