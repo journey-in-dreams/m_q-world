@@ -5,7 +5,7 @@
   "scripts": {
     "lint": "eslint",
     "storybook": "storybook dev -p 6006",
-    "build": "storybook build"
+    "build": "storybook build -o public/storybook"
   },
   "dependencies": {
     "@radix-ui/react-accordion": "catalog:",
