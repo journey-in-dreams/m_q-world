@@ -5,7 +5,9 @@
   "scripts": {
     "lint": "eslint",
     "storybook": "storybook dev -p 6006",
-    "build": "storybook build -o public/storybook"
+    "build:storybook": "storybook build -o public/storybook",
+    "build:styles": "tailwindcss -i ./src/styles/globals.css -o ./dist/index.css",
+    "dev:styles": "tailwindcss -i ./src/styles/globals.css -o ./dist/index.css --watch"
   },
   "dependencies": {
     "@radix-ui/react-accordion": "catalog:",
@@ -34,6 +36,8 @@
     "@radix-ui/react-toggle": "catalog:",
     "@radix-ui/react-toggle-group": "catalog:",
     "@radix-ui/react-tooltip": "catalog:",
+    "@tailwindcss/cli": "catalog:",
+    "autoprefixer": "catalog:",
     "class-variance-authority": "catalog:",
     "clsx": "catalog:",
     "cmdk": "catalog:",
@@ -51,12 +55,13 @@
     "vaul": "catalog:"
   },
   "devDependencies": {
-    "@mq/eslint-config": "workspace:*",
-    "@mq/ts-config": "workspace:*",
-    "@mq/utils": "workspace:*",
-    "@mq/hooks": "workspace:*",
     "@chromatic-com/storybook": "catalog:",
     "@eslint/eslintrc": "catalog:",
+    "@mq/eslint-config": "workspace:*",
+    "@mq/hooks": "workspace:*",
+    "@mq/tailwind-config": "workspace:*",
+    "@mq/ts-config": "workspace:*",
+    "@mq/utils": "workspace:*",
     "@storybook/addon-a11y": "catalog:",
     "@storybook/addon-docs": "catalog:",
     "@storybook/addon-vitest": "catalog:",
@@ -76,5 +81,9 @@
     "tw-animate-css": "catalog:",
     "typescript": "catalog:",
     "vitest": "catalog:"
+  },
+  "exports": {
+    "./*": "./src/components/ui/*.tsx",
+    "./styles.css": "./dist/index.css"
   }
 }

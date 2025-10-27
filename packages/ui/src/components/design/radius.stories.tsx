@@ -6,7 +6,7 @@ import {
   TableHeader,
   TableRow,
 } from "@/components/ui/table";
-// Replace nextjs-vite with the name of your framework
+
 import type { Meta, StoryObj } from "@storybook/nextjs-vite";
 
 type Radius = {
@@ -38,7 +38,7 @@ const meta: Meta<{
 }> = {
   title: "design/Radius",
   argTypes: {},
-  render: (args) => (
+  render: (args: { radius: Radius[] }) => (
     <Table>
       <TableHeader>
         <TableRow>

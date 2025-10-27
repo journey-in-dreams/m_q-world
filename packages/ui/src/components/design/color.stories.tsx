@@ -6,7 +6,7 @@ import {
   TableHeader,
   TableRow,
 } from "@/components/ui/table";
-// Replace nextjs-vite with the name of your framework
+
 import type { Meta, StoryObj } from "@storybook/nextjs-vite";
 
 type Swatch = {
@@ -45,7 +45,7 @@ const meta: Meta<{
 }> = {
   title: "design/Color",
   argTypes: {},
-  render: (args) => (
+  render: (args: { swatch: Swatch[] }) => (
     <Table>
       <TableHeader>
         <TableRow>
@@ -77,6 +77,7 @@ type Story = StoryObj<typeof meta>;
  * Functional color tokens are used to define the core colors of the design system.
  * These colors are used throughout the application for backgrounds, text, borders, etc.
  */
+
 export const Functional: Story = {
   args: {
     swatch: [

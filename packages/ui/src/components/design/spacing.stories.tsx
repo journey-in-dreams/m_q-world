@@ -6,7 +6,7 @@ import {
   TableHeader,
   TableRow,
 } from "@/components/ui/table";
-// Replace nextjs-vite with the name of your framework
+
 import type { Meta, StoryObj } from "@storybook/nextjs-vite";
 
 type Spacing = {
@@ -41,7 +41,7 @@ const meta: Meta<{
 }> = {
   title: "design/Spacing",
   argTypes: {},
-  render: (args) => (
+  render: (args: { scale: Spacing[] }) => (
     <Table>
       <TableHeader>
         <TableRow>

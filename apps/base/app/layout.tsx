@@ -1,7 +1,9 @@
 import type { Metadata } from "next";
 import localFont from "next/font/local";
+import '@mq/ui/styles.css';
 import "./globals.css";
-// import { Button } from "@wq/shadcn/button"
+
+import { Button } from "@mq/ui/button"
 
 const geistSans = localFont({
   src: "./fonts/GeistVF.woff",
@@ -26,7 +28,7 @@ export default function RootLayout({
     <html lang="en">
       <body className={`${geistSans.variable} ${geistMono.variable}`}>
         {children}
-        {/* <Button>12</Button> */}
+        <Button>123</Button>
       </body>
     </html>
   );

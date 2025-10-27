@@ -1,0 +1,17 @@
+{
+  "name": "@mq/tailwind-config",
+  "version": "0.0.0",
+  "type": "module",
+  "private": true,
+  "exports": {
+    ".": "./shared-styles.css",
+    "./postcss": "./postcss.config.js"
+  },
+  "devDependencies": {
+    "tailwindcss": "catalog:",
+    "tw-animate-css": "catalog:"
+  },
+  "dependencies": {
+    "postcss": "catalog:"
+  }
+}

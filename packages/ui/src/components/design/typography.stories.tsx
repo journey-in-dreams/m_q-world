@@ -6,7 +6,7 @@ import {
   TableHeader,
   TableRow,
 } from "@/components/ui/table";
-// Replace nextjs-vite with the name of your framework
+
 import type { Meta, StoryObj } from "@storybook/nextjs-vite";
 import type { CSSProperties, ReactNode } from "react";
 
@@ -58,7 +58,7 @@ const meta: Meta<{
   args: {
     children: "Typeface",
   },
-  render: (args) => (
+  render: (args: { children: string, key: keyof CSSProperties, property: Typography[] }) => (
     <Table>
       <TableHeader>
         <TableRow>
