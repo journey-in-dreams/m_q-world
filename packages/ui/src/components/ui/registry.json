@@ -1,0 +1,10 @@
+{
+	"items": [
+		{
+			"name": "button",
+			"type": "registry:ui",
+			"title": "Button",
+			"files": "../components/ui/button/registry-item.json"
+		}
+	]
+}

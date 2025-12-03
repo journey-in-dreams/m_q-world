@@ -2,11 +2,10 @@ import { ArrowLeft } from 'lucide-react';
 import Link from 'next/link';
 import { notFound } from 'next/navigation';
 
-import { ComponentCard } from '@/components/preview/component-card';
+import { ComponentWrapper } from '@/components/preview/component-wrapper';
 import { Button } from '@/components/ui/button';
 import registry from '@/lib/config.json';
 import { getRegistryItem } from '@/lib/preview';
-import { getPrompt } from '@/lib/utils';
 
 export async function generateStaticParams() {
 	return registry.items.map(({ name }) => ({
@@ -42,11 +41,7 @@ export default async function RegistryItemPage({
 				</div>
 			</div>
 
-			<ComponentCard
-				component={component}
-				baseUrl={process.env.VERCEL_PROJECT_PRODUCTION_URL ?? ''}
-				prompt={getPrompt()}
-			/>
+			<ComponentWrapper name={name} />
 		</div>
 	);
 }
