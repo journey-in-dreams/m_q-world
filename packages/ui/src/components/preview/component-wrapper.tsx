@@ -15,19 +15,6 @@ interface ComponentWrapperProps extends React.HTMLAttributes<HTMLDivElement> {
 }
 
 // biome-ignore lint: false positive
-function flattenFirstLevel<T>(input: Record<string, any>): T {
-	return Object.values(input).reduce((acc, current) => {
-		if (current && typeof current === 'object' && !Array.isArray(current)) {
-			for (const key of Object.keys(current)) {
-				// biome-ignore lint: false positive
-				(acc as any)[key] = current[key];
-			}
-		}
-		return acc;
-	}, {} as T);
-}
-
-// biome-ignore lint: false positive
 function unwrapValues(obj: Record<string, any>): Record<string, any> {
 	if (obj !== null && typeof obj === 'object' && !Array.isArray(obj)) {
 		if ('value' in obj) {
@@ -94,7 +81,7 @@ export const ComponentWrapper = ({
 			);
 		}
 
-		return <ChildrenComp {...flattenFirstLevel(componentProps ?? {})} />;
+		return <ChildrenComp {...(componentProps ?? {})} />;
 	}, [name, componentProps, binds]);
 
 	useEffect(() => {
@@ -117,29 +104,19 @@ export const ComponentWrapper = ({
 							onClick={() => setBinds(initBinds)}
 							className="flex items-center rounded-lg"
 							size="icon-sm"
-							asChild
 						>
-							<motion.button
-								whileHover={{ scale: 1.05 }}
-								whileTap={{ scale: 0.95 }}
-							>
-								<RotateCcw aria-label="restart-btn" size={14} />
-							</motion.button>
+							<RotateCcw aria-label="restart-btn" size={14} />
 						</Button>
 
-						<Button
-							onClick={() => setTweakMode((prev) => !prev)}
-							className="flex items-center rounded-lg"
-							size="icon-sm"
-							asChild
-						>
-							<motion.button
-								whileHover={{ scale: 1.05 }}
-								whileTap={{ scale: 0.95 }}
+						{binds && (
+							<Button
+								onClick={() => setTweakMode((prev) => !prev)}
+								className="flex items-center rounded-lg"
+								size="icon-sm"
 							>
 								<SlidersHorizontal aria-label="tweak-btn" size={14} />
-							</motion.button>
-						</Button>
+							</Button>
+						)}
 					</div>
 					<div className="flex min-h-[400px] w-full items-center justify-center px-10 py-16">
 						<Suspense

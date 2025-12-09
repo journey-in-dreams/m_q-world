@@ -1,38 +1,50 @@
-import { Button, type ButtonProps } from './index';
+import { Button, ButtonRipples } from './index';
+
+const buttonVariant = {
+	default: 'default',
+	accent: 'accent',
+	destructive: 'destructive',
+	outline: 'outline',
+	secondary: 'secondary',
+	ghost: 'ghost',
+	link: 'link',
+};
+
+const buttonSize = {
+	default: 'default',
+	sm: 'sm',
+	lg: 'lg',
+	icon: 'icon',
+	'icon-sm': 'icon-sm',
+	'icon-lg': 'icon-lg',
+};
+
+type ButtonDemoProps = {
+	Button: {
+		variant: keyof typeof buttonVariant;
+		size: keyof typeof buttonSize;
+	};
+};
 
 export const demoProps = {
 	Button: {
 		variant: {
 			value: 'default',
-			options: {
-				default: 'default',
-				accent: 'accent',
-				destructive: 'destructive',
-				outline: 'outline',
-				secondary: 'secondary',
-				ghost: 'ghost',
-				link: 'link',
-			},
+			options: buttonVariant,
 		},
 		size: {
 			value: 'default',
-			options: {
-				default: 'default',
-				sm: 'sm',
-				lg: 'lg',
-				icon: 'icon',
-				'icon-sm': 'icon-sm',
-				'icon-lg': 'icon-lg',
-			},
+			options: buttonSize,
 		},
 	},
 };
 
-export const ButtonDemo = (props: ButtonProps) => {
-	const { variant, size } = props;
+export const ButtonDemo = (props: ButtonDemoProps) => {
+	const { Button: ButtonPropsInfo } = props;
 	return (
-		<Button variant={variant} size={size}>
+		<Button {...ButtonPropsInfo}>
 			Button
+			<ButtonRipples />
 		</Button>
 	);
 };

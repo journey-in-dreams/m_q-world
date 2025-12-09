@@ -37,11 +37,11 @@ import {
 	SidebarMenuItem,
 	useSidebar,
 } from '@/components/ui/sidebar';
-import { getBlocks, getComponents, getUIPrimitives } from '@/lib/preview';
+import registry from '@/lib/preview.json';
 
-const uiItems = getUIPrimitives();
-const componentItems = getComponents();
-const blockItems = getBlocks();
+const blockItems = registry.block || [];
+const componentItems = registry.components || [];
+const uiItems = registry.ui;
 
 export const gettingStartedItems = [{ title: 'Home', path: '/' }];
 

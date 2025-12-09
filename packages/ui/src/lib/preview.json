@@ -1,0 +1,109 @@
+{
+	"block": [],
+
+	"components": [],
+
+	"ui": [
+		{
+			"name": "sidebar",
+			"title": "Sidebar",
+			"demolist": ["demo.tsx"]
+		},
+
+		{
+			"name": "tooltip",
+			"title": "Tooltip",
+			"demolist": ["demo.tsx"]
+		},
+
+		{
+			"name": "input",
+			"title": "Input",
+			"demolist": ["demo.tsx"]
+		},
+
+		{
+			"name": "skeleton",
+			"title": "Skeleton",
+			"demolist": ["demo.tsx"]
+		},
+
+		{
+			"name": "separator",
+			"title": "Separator",
+			"demolist": ["demo.tsx"]
+		},
+
+		{
+			"name": "label",
+			"title": "Label",
+			"demolist": ["demo.tsx"]
+		},
+
+		{
+			"name": "dropdown-menu",
+			"title": "Dropdown Menu",
+			"demolist": ["demo.tsx"]
+		},
+
+		{
+			"name": "slider",
+			"title": "Slider",
+			"demolist": ["demo.tsx"]
+		},
+
+		{
+			"name": "sonner",
+			"title": "Sonner",
+			"demolist": ["demo.tsx"]
+		},
+
+		{
+			"name": "button",
+			"title": "Button",
+			"demolist": ["demo.tsx"]
+		},
+
+		{
+			"name": "scroll-area",
+			"title": "Scroll Area",
+			"demolist": ["demo.tsx"]
+		},
+
+		{
+			"name": "collapsible",
+			"title": "Collapsible",
+			"demolist": ["demo.tsx"]
+		},
+
+		{
+			"name": "avatar",
+			"title": "Avatar",
+			"demolist": ["demo.tsx"]
+		},
+
+		{
+			"name": "switch",
+			"title": "Switch",
+			"demolist": ["demo.tsx"]
+		},
+
+		{
+			"name": "select",
+			"title": "Select",
+			"demolist": ["demo.tsx"]
+		},
+
+		{
+			"name": "breadcrumb",
+			"title": "Breadcrumb",
+			"demolist": ["demo.tsx"]
+		},
+
+		{
+			"name": "sheet",
+			"title": "Sheet",
+			"demolist": ["demo.tsx"]
+		}
+	]
+}

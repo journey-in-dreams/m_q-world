@@ -1,17 +1,8 @@
 import { ArrowLeft } from 'lucide-react';
 import Link from 'next/link';
-import { notFound } from 'next/navigation';
 
 import { ComponentWrapper } from '@/components/preview/component-wrapper';
 import { Button } from '@/components/ui/button';
-import registry from '@/lib/config.json';
-import { getRegistryItem } from '@/lib/preview';
-
-export async function generateStaticParams() {
-	return registry.items.map(({ name }) => ({
-		name,
-	}));
-}
 
 export default async function RegistryItemPage({
 	params,
@@ -19,11 +10,6 @@ export default async function RegistryItemPage({
 	params: Promise<{ name: string }>;
 }) {
 	const { name } = await params;
-	const component = getRegistryItem(name);
-
-	if (!component) {
-		notFound();
-	}
 
 	return (
 		<div className="container p-5 md:p-10">
@@ -35,9 +21,7 @@ export default async function RegistryItemPage({
 							Back to Home
 						</Link>
 					</Button>
-					<h1 className="font-bold text-3xl tracking-tight">
-						{component.title}
-					</h1>
+					<h1 className="font-bold text-3xl tracking-tight">{name}</h1>
 				</div>
 			</div>
 
