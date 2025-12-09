@@ -69,7 +69,7 @@ import {
 	SidebarRail,
 	SidebarTrigger,
 } from '@/components/ui/sidebar';
-import { useIsMobile } from '@/hooks/use-mobile';
+import { useIsMobile } from '@/hooks';
 
 const DATA = {
 	user: {
