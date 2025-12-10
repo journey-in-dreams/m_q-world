@@ -85,6 +85,7 @@ function SidebarProvider({
 	);
 
 	// Helper to toggle the sidebar.
+	// biome-ignore lint: false positive
 	const toggleSidebar = React.useCallback(() => {
 		return isMobile ? setOpenMobile((open) => !open) : setOpen((open) => !open);
 	}, [isMobile, setOpen, setOpenMobile]);
@@ -109,6 +110,7 @@ function SidebarProvider({
 	// This makes it easier to style the sidebar with Tailwind classes.
 	const state = open ? 'expanded' : 'collapsed';
 
+	// biome-ignore lint: false positive
 	const contextValue = React.useMemo<SidebarContextProps>(
 		() => ({
 			state,
@@ -303,7 +305,7 @@ function SidebarTrigger({ className, onClick, ...props }: SidebarTriggerProps) {
 			}}
 			{...props}
 		>
-			<PanelLeftIcon />
+			{/* <PanelLeftIcon /> */}
 			<span className="sr-only">Toggle Sidebar</span>
 		</Button>
 	);

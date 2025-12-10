@@ -15,7 +15,6 @@ import {
 	Frame,
 	GalleryVerticalEnd,
 	LogOut,
-	Map,
 	MoreHorizontal,
 	PieChart,
 	Plus,
@@ -196,7 +195,7 @@ const DATA = {
 		{
 			name: 'Travel',
 			url: '#',
-			icon: Map,
+			icon: PieChart,
 		},
 	],
 };

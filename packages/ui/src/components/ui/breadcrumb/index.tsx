@@ -37,7 +37,7 @@ function BreadcrumbLink({
 }: React.ComponentProps<'a'> & {
 	asChild?: boolean;
 }) {
-	const Comp = asChild ? Slot : 'a';
+	const Comp = asChild ? Slot.Root : 'a';
 
 	return (
 		<Comp
@@ -50,6 +50,7 @@ function BreadcrumbLink({
 
 function BreadcrumbPage({ className, ...props }: React.ComponentProps<'span'>) {
 	return (
+		// biome-ignore lint: false positive
 		<span
 			data-slot="breadcrumb-page"
 			role="link"

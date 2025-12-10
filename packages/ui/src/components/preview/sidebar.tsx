@@ -75,14 +75,16 @@ export function RegistrySidebar() {
 				),
 			);
 			setFilteredComponents(
-				componentItems.filter((item) =>
-					item.title.toLowerCase().includes(searchTerm.toLowerCase()),
-				),
+				[],
+				// componentItems.filter((item) =>
+				// 	item.title.toLowerCase().includes(searchTerm.toLowerCase()),
+				// ),
 			);
 			setFilteredBlocks(
-				blockItems.filter((item) =>
-					item.title.toLowerCase().includes(searchTerm.toLowerCase()),
-				),
+				[],
+				// blockItems.filter((item) =>
+				// 	item.title.toLowerCase().includes(searchTerm.toLowerCase()),
+				// ),
 			);
 		} else {
 			setFilteredUiItems(uiItems);
@@ -161,7 +163,7 @@ export function RegistrySidebar() {
 						</SidebarGroup>
 					</Collapsible>
 
-					<Collapsible defaultOpen={true} className="group/collapsible">
+					{/* <Collapsible defaultOpen={true} className="group/collapsible">
 						<SidebarGroup>
 							<CollapsibleTrigger className="w-full">
 								<SidebarGroupLabel className="flex cursor-pointer items-center justify-between">
@@ -235,7 +237,7 @@ export function RegistrySidebar() {
 								</SidebarGroupContent>
 							</CollapsibleContent>
 						</SidebarGroup>
-					</Collapsible>
+					</Collapsible> */}
 
 					<Collapsible defaultOpen={true} className="group/collapsible">
 						<SidebarGroup>
