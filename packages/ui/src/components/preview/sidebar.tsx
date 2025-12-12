@@ -1,15 +1,6 @@
 'use client';
 
-import {
-	Blocks,
-	ChevronDown,
-	Component,
-	Home,
-	Menu,
-	Search,
-	ToyBrick,
-	X,
-} from 'lucide-react';
+import { ChevronDown, Home, Menu, Search, ToyBrick, X } from 'lucide-react';
 import Link from 'next/link';
 import { usePathname } from 'next/navigation';
 import { useEffect, useState } from 'react';

@@ -20,6 +20,10 @@ type SlotProps<T extends HTMLElement = HTMLElement> = {
 	children?: any;
 } & DOMMotionProps<T>;
 
+function errorSlotTip() {
+	console.warn('使用asChild时，只允许有一个子组件且必须为React.ReactElement');
+}
+
 function mergeRefs<T>(
 	...refs: (React.Ref<T> | undefined)[]
 ): React.RefCallback<T> {
@@ -63,20 +67,22 @@ function Slot<T extends HTMLElement = HTMLElement>({
 	ref,
 	...props
 }: SlotProps<T>) {
-	const isAlreadyMotion =
-		typeof children.type === 'object' &&
-		children.type !== null &&
-		isMotionComponent(children.type);
-
-	const Base = React.useMemo(
-		() =>
-			isAlreadyMotion
+	const Base = React.useMemo(() => {
+		if (children && React.isValidElement(children)) {
+			return typeof children.type === 'object' &&
+				children.type !== null &&
+				isMotionComponent(children.type)
 				? (children.type as React.ElementType)
-				: motion.create(children.type as React.ElementType),
-		[isAlreadyMotion, children.type],
-	);
+				: motion.create(children.type as React.ElementType);
+		}
+		errorSlotTip();
+		return null;
+	}, [children]);
 
-	if (!React.isValidElement(children)) return null;
+	if (!children || !React.isValidElement(children) || !Base) {
+		errorSlotTip();
+		return null;
+	}
 
 	const { ref: childRef, ...childProps } = children.props as AnyProps;
 
