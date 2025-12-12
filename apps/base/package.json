@@ -1,26 +1,26 @@
 {
-	"name": "base",
-	"version": "0.1.0",
-	"type": "module",
-	"private": true,
-	"scripts": {
-		"dev": "bun run --bun next dev --port 3000",
-		"build": "bun run --bun next build",
-		"start": "next start",
-		"check-types": "next typegen && tsc --noEmit"
-	},
-	"dependencies": {
-		"@tailwindcss/postcss": "^4.1.16",
-		"next": "^16.0.0",
-		"react": "catalog:",
-		"react-dom": "catalog:"
-	},
-	"devDependencies": {
-		"@mq/ts-config": "*",
-		"@mq/ui": "*",
-		"@types/node": "^22.15.3",
-		"@types/react": "catalog:",
-		"@types/react-dom": "catalog:",
-		"typescript": "5.9.2"
-	}
+  "name": "base",
+  "version": "0.1.0",
+  "type": "module",
+  "private": true,
+  "scripts": {
+    "dev": "bun run --bun next dev --port 3000",
+    "build": "bun run --bun next build",
+    "start": "next start",
+    "check-types": "next typegen && tsc --noEmit"
+  },
+  "dependencies": {
+    "@tailwindcss/postcss": "^4.1.16",
+    "next": "16.0.10",
+    "react": "catalog:",
+    "react-dom": "catalog:"
+  },
+  "devDependencies": {
+    "@mq/ts-config": "*",
+    "@mq/ui": "*",
+    "@types/node": "^22.15.3",
+    "@types/react": "catalog:",
+    "@types/react-dom": "catalog:",
+    "typescript": "5.9.2"
+  }
 }
